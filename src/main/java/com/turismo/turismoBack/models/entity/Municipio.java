@@ -17,7 +17,7 @@ public class Municipio {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
     private String nombre;
-    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler"})
-    @OneToMany(mappedBy = "municipio", cascade = CascadeType.ALL )
-    private List<Publicacion> publicaciones;
+//    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler"})
+//    @OneToMany(mappedBy = "municipio", cascade = CascadeType.ALL )
+//    private List<Publicacion> publicaciones;
 }

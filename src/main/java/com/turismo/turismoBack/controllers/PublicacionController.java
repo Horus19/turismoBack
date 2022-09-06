@@ -18,9 +18,6 @@ public class PublicacionController {
 
     private PublicacionService publicacionService;
 
-    private MunicipioService municipioService;
-
-    private UsuarioService usuarioService;
 
     @GetMapping("/publicaciones")
     public ResponseEntity<List<Publicacion>> findAll() {
@@ -75,6 +72,21 @@ public class PublicacionController {
             return new ResponseEntity("No existe la publicacion con municipio id " + id, HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(publicaciones);
+    }
+
+    @PostMapping("/publicacion")
+    public ResponseEntity<Publicacion> create(@RequestBody Publicacion publicacion) {
+        var publicacionDB = publicacionService.savePublicacion(publicacion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(publicacionDB);
+    }
+
+    @PutMapping("/publicacion")
+    public ResponseEntity<Publicacion> update(@RequestBody Publicacion publicacion) {
+        var publicacionDB = publicacionService.updatePublicacion(publicacion);
+        if (publicacionDB == null) {
+            return new ResponseEntity("No existe la publicacion con id " + publicacion.getId(), HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(publicacionDB);
     }
 
 

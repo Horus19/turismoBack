@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PublicacionService {
-    public void savePublicacion(Publicacion publicacion);
+    public Publicacion savePublicacion(Publicacion publicacion);
 
     List<Publicacion> findAll();
 
@@ -14,7 +14,9 @@ public interface PublicacionService {
 
     public void deletePublicacion(Long id);
 
-    public void updatePublicacion(Publicacion publicacion);
+    public Publicacion updatePublicacion(Publicacion publicacion);
+
+
 
 
     public List<Publicacion> findByTitulo(String titulo);

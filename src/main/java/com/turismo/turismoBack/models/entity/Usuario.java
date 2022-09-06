@@ -27,14 +27,14 @@ public class Usuario {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="usuarios_roles", joinColumns= @JoinColumn(name="usuario_id"),
-            inverseJoinColumns=@JoinColumn(name="role_id"),
-            uniqueConstraints= {@UniqueConstraint(columnNames= {"usuario_id", "role_id"})})
-
-    private List<Role> roles;
-
-    @JsonIgnoreProperties({"usuario", "hibernateLazyInitializer", "handler"})
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Publicacion> publicaciones;
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinTable(name="usuarios_roles", joinColumns= @JoinColumn(name="usuario_id"),
+//            inverseJoinColumns=@JoinColumn(name="role_id"),
+//            uniqueConstraints= {@UniqueConstraint(columnNames= {"usuario_id", "role_id"})})
+//
+//    private List<Role> roles;
+//
+//    @JsonIgnoreProperties({"usuario", "hibernateLazyInitializer", "handler"})
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+//    private List<Publicacion> publicaciones;
 }

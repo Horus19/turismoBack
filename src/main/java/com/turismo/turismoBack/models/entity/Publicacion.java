@@ -28,20 +28,20 @@ public class Publicacion {
     @Column(name = "imagen")
     private String imagen;
 
-//    @Column(name = "usuario_id")
-//    private Long usuario_id;
+    @Column(name = "usuario_id")
+    private Long usuario_id;
+
+    @Column(name = "municipio_id")
+    private Long municipio_id;
+
+//    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler", "password"})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+//    private Usuario usuario;
 //
-//    @Column(name = "municipio_id")
-//    private Long municipio_id;
-
-    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler", "password"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
-    private Usuario usuario;
-
-    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "municipio_id", insertable = false, updatable = false)
-    private Municipio municipio;
+//    @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler"})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "municipio_id", insertable = false, updatable = false)
+//    private Municipio municipio;
 
 }

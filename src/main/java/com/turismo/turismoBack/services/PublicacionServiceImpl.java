@@ -21,8 +21,8 @@ public class PublicacionServiceImpl implements PublicacionService {
 
 
     @Override
-    public void savePublicacion(Publicacion publicacion) {
-
+    public Publicacion savePublicacion(Publicacion publicacion) {
+        return publicacionRepository.save(publicacion);
     }
 
     @Override
@@ -41,8 +41,8 @@ public class PublicacionServiceImpl implements PublicacionService {
     }
 
     @Override
-    public void updatePublicacion(Publicacion publicacion) {
-        publicacionRepository.save(publicacion);
+    public Publicacion updatePublicacion(Publicacion publicacion) {
+        return publicacionRepository.save(publicacion);
     }
 
     @Override

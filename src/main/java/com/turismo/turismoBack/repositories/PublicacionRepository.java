@@ -18,9 +18,11 @@ public interface PublicacionRepository extends JpaRepository<Publicacion, Long> 
     @Query("select p from Publicacion p where p.precio between ?1 and ?2")
     List<Publicacion> findByPrecioBetween(Double precio1, Double precio2);
 
-    @Query("select p from Publicacion p where p.municipio.id = ?1")
+    @Query("select p from Publicacion p where p.municipio_id = ?1")
     List<Publicacion> findByMunicipio(Long id);
 
+    @Query("select p from Publicacion p where p.usuario_id = ?1")
     List<Publicacion> findByUsuarioId(Long id);
+    
 }
 
