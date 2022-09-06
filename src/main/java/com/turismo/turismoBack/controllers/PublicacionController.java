@@ -1,7 +1,9 @@
 package com.turismo.turismoBack.controllers;
 
 import com.turismo.turismoBack.models.entity.Publicacion;
+import com.turismo.turismoBack.services.MunicipioService;
 import com.turismo.turismoBack.services.PublicacionService;
+import com.turismo.turismoBack.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,10 @@ import java.util.List;
 public class PublicacionController {
 
     private PublicacionService publicacionService;
+
+    private MunicipioService municipioService;
+
+    private UsuarioService usuarioService;
 
     @GetMapping("/publicaciones")
     public ResponseEntity<List<Publicacion>> findAll() {
@@ -53,6 +59,25 @@ public class PublicacionController {
         return ResponseEntity.ok(publicaciones);
     }
 
+    @GetMapping("/publicacionByIDUsuario")
+    public ResponseEntity<List<Publicacion>> findByIDUsuario(@RequestParam Long id) {
+        var publicaciones = publicacionService.findByUsuario(id);
+        if (publicaciones.isEmpty()) {
+            return new ResponseEntity("No existe la publicacion con usuario id " + id, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(publicaciones);
+    }
+
+    @GetMapping("/publicacionByIDMunicipio")
+    public ResponseEntity<List<Publicacion>> findByIDMunicipio(@RequestParam Long id) {
+        var publicaciones = publicacionService.findByMunicipio(id);
+        if (publicaciones.isEmpty()) {
+            return new ResponseEntity("No existe la publicacion con municipio id " + id, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(publicaciones);
+    }
+
+
     @DeleteMapping("/publicaciones/{id}")
     public ResponseEntity<Publicacion> deletePublicacion(@PathVariable Long id) {
         var publicacion = publicacionService.findById(id);
@@ -63,11 +88,8 @@ public class PublicacionController {
         return ResponseEntity.ok(publicacion);
     }
 
-    @PostMapping("/publicaciones")
-    public ResponseEntity<Publicacion> createPublicacion(@RequestBody Publicacion publicacion) {
-        publicacionService.savePublicacion(publicacion);
-        return ResponseEntity.status(HttpStatus.CREATED).body(publicacion);
-    }
+
+
 
 
     @Autowired

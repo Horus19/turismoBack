@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter @Setter
 public class publicacionDTO {
-    private Long id;
     private String titulo;
     private String descripcion;
     private Double precio;

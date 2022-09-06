@@ -21,7 +21,6 @@ public interface PublicacionRepository extends JpaRepository<Publicacion, Long> 
     @Query("select p from Publicacion p where p.municipio.id = ?1")
     List<Publicacion> findByMunicipio(Long id);
 
-    @Query("select p from Publicacion p where p.usuario.id = ?1")
-    List<Publicacion> findByUsuario(Long id);
+    List<Publicacion> findByUsuarioId(Long id);
 }
 

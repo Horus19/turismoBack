@@ -24,10 +24,8 @@ public interface PublicacionService {
 
     public List<Publicacion> findByPrecioBetween(Double precio1, Double precio2);
 
-    @Query("SELECT p FROM Publicacion p WHERE p.municipio.id = ?1")
     public List<Publicacion> findByMunicipio(Long id);
 
-    @Query("SELECT p FROM Publicacion p WHERE p.usuario.id = ?1")
     public List<Publicacion> findByUsuario(Long id);
 
 }

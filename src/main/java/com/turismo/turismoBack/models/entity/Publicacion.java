@@ -23,8 +23,16 @@ public class Publicacion {
     @Column(name = "precio")
     private Double precio;
 
-    @Lob
-    private byte[] imagen;
+//    @Lob
+//    private byte[] imagen;
+    @Column(name = "imagen")
+    private String imagen;
+
+//    @Column(name = "usuario_id")
+//    private Long usuario_id;
+//
+//    @Column(name = "municipio_id")
+//    private Long municipio_id;
 
     @JsonIgnoreProperties({"publicaciones", "hibernateLazyInitializer", "handler", "password"})
     @ManyToOne(fetch = FetchType.LAZY)
