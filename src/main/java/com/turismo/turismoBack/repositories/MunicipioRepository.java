@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface MunicipioRepository extends JpaRepository<Municipio, Long> {
+
     @Query("select m from Municipio m where m.id = ?1")
     Optional<Municipio> findById(Long id);
+
 }
 

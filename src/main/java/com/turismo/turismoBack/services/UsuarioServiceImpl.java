@@ -2,7 +2,10 @@ package com.turismo.turismoBack.services;
 
 import com.turismo.turismoBack.models.entity.Usuario;
 import com.turismo.turismoBack.repositories.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository usuarioRepository;
 
@@ -33,6 +36,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void updateUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);
+    }
+
+    @Override
+    public List<Usuario> findAll() {
+        return usuarioRepository.findAll();
     }
 }
 

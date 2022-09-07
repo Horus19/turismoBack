@@ -2,7 +2,10 @@ package com.turismo.turismoBack.services;
 
 import com.turismo.turismoBack.models.entity.Municipio;
 import com.turismo.turismoBack.repositories.MunicipioRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+@Service
 public class MunicipioServiceImpl implements MunicipioService {
     private MunicipioRepository municipioRepository;
 
@@ -28,6 +31,11 @@ public class MunicipioServiceImpl implements MunicipioService {
     @Override
     public void updateMunicipio(Municipio municipio) {
         municipioRepository.save(municipio);
+    }
+
+    @Override
+    public List<Municipio> findAll() {
+        return municipioRepository.findAll();
     }
 }
 
