@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  turismo_back:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: turismo_back
+    ports:
+      - 8080:8080
+    environment:
+      - MYSQL_DB_HOST=mysql
+      - MYSQL_DB_PORT=23306
+      - MYSQL_DB_USERNAME=root
+      - MYSQL_DB_PASSWORD=19992012
+    networks:
+      - mysql_network
+networks:
+  mysql_network:
+    name: mysql_net
+    driver: bridge
